@@ -114,7 +114,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-xl {
     padding: 20px 40px;
     border-color: #64a8bd;
-    border-radius: 3px;
+    border-radius: 5px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 18px;
@@ -159,101 +159,111 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .btn-xl .badge {
-    color:#C5B4B4;
+    color:#E1A014;
     background-color: #fff;
 }
 
-.navbar-default {
-    border-color: #5E1FAC;
-    background-color: #222;
+#header{
+    position: relative;
+    width: 100%;
 }
+.menu{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 135px;
+    background: #64a8bd;;
 
-.navbar-default .navbar-brand {
-    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
-    color:#ACAAAA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
 }
-
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus,
-.navbar-default .navbar-brand:active,
-.navbar-default .navbar-brand.active {
-    color: #e3e4e5;
-}
-
-.navbar-default .navbar-collapse {
-    border-color: rgba(255,255,255,.02);
-}
-
-.navbar-default .navbar-toggle {
-    border-color: #C5B4B4;
-    background-color: #333333;
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #333333;
-}
-
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-    background-color: #333333;
-}
-
-.navbar-default .nav li a {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+.menu .logo-box{margin-left: 100px;}
+.menu .logo-box h1 a{
+    text-decoration: none;
+    font-size: var(--title);
     font-weight: 400;
-    letter-spacing: 1px;
-    color: #110F0F;
+    color:var(--white);
+}
+.menu .list-container{margin-right: 150px;}
+.menu .list-container ul{display: flex;}
+.menu .list-container ul li{list-style: none;}
+.menu .list-container ul li a{
+    text-decoration: none;
+    margin: 0px 30px;
+    padding:10px;
+    color: var(--black);
+    border-radius: 24px;
+    transition: 0.3s;
+    font-size: 20px;
+}
+.menu .list-container ul li a.active{
+    background: var(--red);
+    color:#B84FCF;
+}
+.menu .list-container ul li a:hover{
+    background:#64a8bd;
+    color:#B84FCF;
 }
 
-.navbar-default .nav li a:hover,
-.navbar-default .nav li a:focus {
-    outline: 0;
-    color: #C5B4B4;
+.btn-menu > .fa-bars{
+    display: none;
 }
 
-.navbar-default .navbar-nav>.active>a {
-    border-radius: 0;
-    color: #fff;
-    background-color: #64a8bd;
+@media only screen and (max-width:900px){
+    .btn-menu > .fa-bars{
+        display: block;
+        position:absolute;
+        right: 30px;
+        top: 20px;
+        font-size: 28px;
+        color: var(--black);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+    .btn-menu > .fa-times{color: var(--red);}
+    .btn-menu > .fa-bars:hover{color:var(--red);}
+    .menu .logo-box{margin-left: 30px;}
+    .menu .list-container{
+        position: fixed;
+        top:60px;
+        left:-100%;
+        background:#fff;
+        width: 100%;
+        height: calc(100vh - 60px);
+    }
+    .menu .list-container .lists{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-top:4px solid var(--red);
+    }
+    .menu .list-container ul li{
+        width: 90%;
+        border-bottom: 2px solid var(--black);
+        display: flex;
+        justify-content: center;
+    }
+    .menu .list-container ul li a{
+        font-size: 20px;
+        text-align: center;
+        padding:12px 0px;
+    }
+    .menu .list-container ul li a.active{
+        background: none;
+        color:var(--red);
+    }
+    .menu .list-container ul li a:hover{
+        background: none;
+        color:var(--red);
+    }
 }
 
-.navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>.active>a:focus {
-    color: #fff;
-    background-color: #1f999c;
-}
-
-@media(min-width:768px) {
-    .navbar-default {
-        padding: 25px 0;
-        border: 0;
-        background-color: #C5B4B4;
-        -webkit-transition: padding .3s;
-        -moz-transition: padding .3s;
-        transition: padding .3s;
-    }
-
-    .navbar-default .navbar-brand {
-        font-size: 2em;
-        -webkit-transition: all .3s;
-        -moz-transition: all .3s;
-        transition: all .3s;
-    }
-
-    .navbar-default .navbar-nav>.active>a {
-        border-radius: 3px;
-    }
-
-    .navbar-default.navbar-shrink {
-        padding: 35px 0;
-        background-color: #8798B0;
-    }
-
-    .navbar-default.navbar-shrink .navbar-brand {
-        font-size: 1.5em;
-    }
-}
 
 header {
     text-align: center;
@@ -276,7 +286,7 @@ header .intro-text {
 header .intro-text .intro-lead-in {
     margin-bottom: 25px;
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 22px;
+    font-size: 100px;
     font-style: italic;
     line-height: 22px;
 }
@@ -299,16 +309,16 @@ header .intro-text .intro-heading {
     header .intro-text .intro-lead-in {
         margin-bottom: 25px;
         font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 40px;
+        font-size: 45px;
         font-style: italic;
-        line-height: 40px;
+        line-height: 50px;
     }
 
     header .intro-text .intro-heading {
         margin-bottom: 50px;
         text-transform: uppercase;
         font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 75px;
+        font-size: 85px;
         font-weight: 700;
         line-height: 75px;
     }
@@ -677,6 +687,7 @@ ul.social-buttons li a {
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .3s;
+}
 }
 
 ul.social-buttons li a:hover,
